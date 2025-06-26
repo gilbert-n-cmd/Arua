@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunshine Academy | Nursery & Primary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #FFC107;
+            --accent: #2196F3;
+            --light: #F9F9F9;
+            --dark: #2E3A47;
+            --pink: #FF4081;
+            --purple: #9C27B0;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f5f9ff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 2px solid var(--accent);
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.25);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.35);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .btn-secondary:hover {
+            color: var(--secondary);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
+        }
+
+        .btn-green {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-green:hover {
+            color: var(--primary);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 25px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.25);
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 16px;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(105deg, rgba(76, 175, 80, 0.92) 0%, rgba(33, 150, 243, 0.92) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 100px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 800px;
+            margin: 40px auto 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 40px 35px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border-bottom: 5px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 36px;
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Programs */
+        .programs {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f0f9ff, #e6f7ff);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .program-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-image {
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 35px 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .program-content p {
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+
+        .age-group {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .program-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .program-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .program-list li i {
+            color: var(--primary);
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: -200px;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .testimonials::after {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .testimonials-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--light);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 100px;
+            color: var(--secondary);
+            opacity: 0.15;
+            font-family: serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-content {
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #e6f7ff, #f0f9ff);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(33, 150, 243, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .stat-item p {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        /* Admissions */
+        .admissions {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .admissions-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .admissions-image {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .admissions-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .admissions-content h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .admissions-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .admissions-steps {
+            margin-top: 40px;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f0f9ff, #e6f7ff);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            background: var(--primary);
+            padding: 50px 40px;
+            border-radius: 25px;
+            color: white;
+            box-shadow: 0 20px 50px rgba(76, 175, 80, 0.2);
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 35px;
+            color: white;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 35px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .contact-text p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .map {
+            border-radius: 25px;
+            overflow: hidden;
+            height: 350px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            margin-top: 40px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            font-size: 2.5rem;
+            margin-bottom: 35px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .contact-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            background: #f9f9f9;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent);
+            background: white;
+            outline: none;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.15);
+        }
+
+        .form-group textarea {
+            height: 180px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 100px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 70px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .footer-col p {
+            margin-bottom: 25px;
+            color: #bbb;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a i {
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: white;
+            font-size: 22px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-7px);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 70px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .admissions-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .admissions-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .map {
+                margin-top: 20px;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 100px 40px 40px;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s ease;
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+            }
+            
+            .nav-toggle {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 22px;
+            }
+            
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 26px;
+            }
+            
+            .programs-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card,
+            .program-card {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Sunshine Academy</h1>
+                        <span>Nursery & Primary School</span>
+                    </div>
+                </div>
+                
+                <nav>
+                    <button class="nav-toggle" id="navToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul id="navMenu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Where Young Minds Blossom & Grow</h1>
+                <p>A nurturing environment that inspires creativity, curiosity, and a lifelong love of learning for children aged 2-11 years.</p>
+                <div class="hero-buttons">
+                    <a href="#admissions" class="btn">Enroll Now</a>
+                    <a href="#contact" class="btn btn-secondary">Schedule a Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Sunshine Academy?</h2>
+                <p>We provide a safe, nurturing, and stimulating environment for your child's early development and education journey.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Nurturing Environment</h3>
+                    <p>Our caring staff creates a warm, loving atmosphere where children feel safe to explore, learn, and grow emotionally and socially.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Play-Based Learning</h3>
+                    <p>We combine structured learning with play to develop cognitive, social, emotional, and motor skills through engaging activities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Experienced Educators</h3>
+                    <p>Our qualified teachers have specialized training in early childhood development and primary education with 5+ years of experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Healthy Nutrition</h3>
+                    <p>Daily nutritious meals prepared on-site with fresh, organic ingredients to support children's growth and development.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Creative Expression</h3>
+                    <p>Art, music, drama, and movement activities to encourage imagination, self-expression, and confidence building.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Outdoor Learning</h3>
+                    <p>Beautiful playgrounds, gardens, and nature exploration for physical development and environmental awareness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Educational Programs</h2>
+                <p>Age-appropriate programs designed to foster growth and development at every stage of your child's journey.</p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1611270629569-8b357cb308da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toddler Program">
+                    </div>
+                    <div class="program-content">
+                        <span class="age-group">Ages 2-3</span>
+                        <h3>Toddler Program</h3>
+                        <p>Our toddler program focuses on sensory exploration, language development, and social interaction through play-based activities in a safe, nurturing environment.</p>
+                        <ul class="program-list">
+                            <li><i class="fas fa-check"></i> Sensory play activities</li>
+                            <li><i class="fas fa-check"></i> Early language development</li>
+                            <li><i class="fas fa-check"></i> Social skills building</li>
+                            <li><i class="fas fa-check"></i> Fine motor skill development</li>
+                            <li><i class="fas fa-check"></i> Music and movement</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-green">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Preschool Program">
+                    </div>
+                    <div class="program-content">
+                        <span class="age-group">Ages 3-5</span>
+                        <h3>Preschool Program</h3>
+                        <p>Our preschool curriculum prepares children for kindergarten through structured activities that develop early literacy, numeracy, and social skills.</p>
+                        <ul class="program-list">
+                            <li><i class="fas fa-check"></i> Phonics and pre-reading skills</li>
+                            <li><i class="fas fa-check"></i> Early math concepts</li>
+                            <li><i class="fas fa-check"></i> Science exploration</li>
+                            <li><i class="fas fa-check"></i> Creative arts</li>
+                            <li><i class="fas fa-check"></i> Social-emotional learning</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-green">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Primary Program">
+                    </div>
+                    <div class="program-content">
+                        <span class="age-group">Ages 6-11</span>
+                        <h3>Primary School</h3>
+                        <p>Our primary program offers a comprehensive curriculum that challenges students academically while nurturing their individual talents and interests.</p>
+                        <ul class="program-list">
+                            <li><i class="fas fa-check"></i> Core academic subjects</li>
+                            <li><i class="fas fa-check"></i> Foreign language instruction</li>
+                            <li><i class="fas fa-check"></i> STEM enrichment</li>
+                            <li><i class="fas fa-check"></i> Arts and music programs</li>
+                            <li><i class="fas fa-check"></i> Sports and physical education</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-green">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-child"></i>
+                    <h3>650+</h3>
+                    <p>Happy Students</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>42</h3>
+                    <p>Qualified Teachers</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-school"></i>
+                    <h3>18</h3>
+                    <p>Years of Experience</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>36</h3>
+                    <p>Awards Won</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Parents Say</h2>
+                <p>Hear from our happy parents about their experience with Sunshine Academy.</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Sunshine Academy has been a blessing for our family. Our daughter has blossomed both socially and academically since joining. The teachers are incredibly attentive and caring, and the curriculum is both engaging and educational. We couldn't be happier with our choice!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Parent of Sophia (Preschool)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"We enrolled our son in the toddler program and couldn't be happier. The facilities are clean and safe, the meals are nutritious, and most importantly, he comes home happy every day. The staff truly cares about each child's development and well-being."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Michael Chen">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>Parent of Ethan (Toddler Program)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Happy Moments</h2>
+                <p>A glimpse into our vibrant learning environment and daily activities.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Classroom Activity">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Art Class">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Playground">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e100327743c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Science Experiment">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Music Class">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Library Time">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sports Day">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1472162314594-eca3c3d90df1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Gardening Club">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions -->
+    <section class="admissions" id="admissions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admissions Process</h2>
+                <p>Join our Sunshine Academy family through our simple admissions process</p>
+            </div>
+            
+            <div class="admissions-container">
+                <div class="admissions-image">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Admissions">
+                </div>
+                
+                <div class="admissions-content">
+                    <h2>Enroll Your Child Today</h2>
+                    <p>We're excited that you're considering Sunshine Academy for your child's education. Our admissions process is designed to be straightforward and informative, ensuring we find the perfect program for your child's needs.</p>
+                    <p>We accept applications year-round based on availability. Spaces fill quickly, so we encourage you to begin the process as early as possible.</p>
+                    
+                    <div class="admissions-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>School Tour & Meeting</h4>
+                                <p>Schedule a personalized tour to see our facilities, meet our staff, and learn about our programs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Submit Application</h4>
+                                <p>Complete our online application form and submit required documents (birth certificate, previous school records).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Child Assessment</h4>
+                                <p>We conduct a friendly assessment to understand your child's developmental level and learning needs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Admission Decision</h4>
+                                <p>Receive notification of acceptance and complete enrollment paperwork to secure your child's spot.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn">Begin Enrollment Process</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you! Reach out to schedule a tour or ask questions.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>123 Sunshine Boulevard<br>Education City, EC 54321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone Number</h3>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Address</h3>
+                            <p>info@sunshineacademy.edu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Opening Hours</h3>
+                            <p>Monday - Friday: 7:30 AM - 6:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.184133404672!2d-73.98757472443225!3d40.75802887138757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1687208644982!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="child-age">Child's Age</label>
+                                <select id="child-age" required>
+                                    <option value="">Select Age Group</option>
+                                    <option value="2-3">2-3 years (Toddler)</option>
+                                    <option value="3-5">3-5 years (Preschool)</option>
+                                    <option value="6-11">6-11 years (Primary)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Sunshine Academy</h3>
+                    <p>Providing exceptional early childhood and primary education in a nurturing environment since 2005. We help children develop socially, emotionally, and academically.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-angle-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-angle-right"></i> About Us</a></li>
+                        <li><a href="#programs"><i class="fas fa-angle-right"></i> Programs</a></li>
+                        <li><a href="#gallery"><i class="fas fa-angle-right"></i> Gallery</a></li>
+                        <li><a href="#admissions"><i class="fas fa-angle-right"></i> Admissions</a></li>
+                        <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Toddler Program (2-3 years)</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Preschool (3-5 years)</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Primary School (6-11 years)</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> After School Care</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Summer Camp</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Enrichment Programs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on events, programs, and parenting tips.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address">
+                        <button class="btn btn-secondary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sunshine Academy. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--pink);"></i> for children</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            this.reset();
+        });
+        
+        // Newsletter Form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            if (emailInput.value) {
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .program-card, .testimonial-card, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.feature-card, .program-card, .testimonial-card, .gallery-item').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
